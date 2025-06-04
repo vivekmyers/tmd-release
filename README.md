@@ -415,18 +415,18 @@ the goal is defined only by the x-y position, not including the agent's proprioc
 - We also provide the `cube-octuple` task, which involves eight cubes.
 While we do not provide a default dataset for this task, you may download the 100M-sized dataset below.
 - For some tasks, we provide larger datasets with 100M transitions, collected by the same scripted policy as the original datasets.
-They can be manually downloaded from the following links:
+They can be manually downloaded from the following links (see [this repository](https://github.com/seohongpark/horizon-reduction) for examples of how to load these datasets):
   - `humanoidmaze-giant-navigate-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/humanoidmaze-giant-navigate-100m-v0
   - `cube-double-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/cube-double-play-100m-v0
   - `cube-triple-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/cube-triple-play-100m-v0
   - `cube-quadruple-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/cube-quadruple-play-100m-v0
   - `cube-quadruple-noisy-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/cube-quadruple-noisy-100m-v0
   - `cube-octuple-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/cube-octuple-play-100m-v0
-  - `scene-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/scene-play-100m-v0
-  - `puzzle-3x3-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/puzzle-3x3-play-100m-v0
-  - `puzzle-4x4-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/puzzle-4x4-play-100m-v0
-  - `puzzle-4x5-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/puzzle-4x5-play-100m-v0
-  - `puzzle-4x6-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/puzzle-4x6-play-100m-v0
+  - `scene-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/scene-play-100m-v0 (temporarily not available)
+  - `puzzle-3x3-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/puzzle-3x3-play-100m-v0 (temporarily not available)
+  - `puzzle-4x4-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/puzzle-4x4-play-100m-v0 (temporarily not available)
+  - `puzzle-4x5-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/puzzle-4x5-play-100m-v0 (temporarily not available)
+  - `puzzle-4x6-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/puzzle-4x6-play-100m-v0 (temporarily not available)
 
   
 
