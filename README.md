@@ -422,11 +422,11 @@ They can be manually downloaded from the following links (see [this repository](
   - `cube-quadruple-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/cube-quadruple-play-100m-v0
   - `cube-quadruple-noisy-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/cube-quadruple-noisy-100m-v0
   - `cube-octuple-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/cube-octuple-play-100m-v0
-  - `scene-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/scene-play-100m-v0 (temporarily not available)
-  - `puzzle-3x3-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/puzzle-3x3-play-100m-v0 (temporarily not available)
-  - `puzzle-4x4-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/puzzle-4x4-play-100m-v0 (temporarily not available)
-  - `puzzle-4x5-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/puzzle-4x5-play-100m-v0 (temporarily not available)
-  - `puzzle-4x6-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/puzzle-4x6-play-100m-v0 (temporarily not available)
+  - `scene-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/scene-play-100m-v0
+  - `puzzle-3x3-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/puzzle-3x3-play-100m-v0
+  - `puzzle-4x4-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/puzzle-4x4-play-100m-v0
+  - `puzzle-4x5-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/puzzle-4x5-play-100m-v0
+  - `puzzle-4x6-play-100m-v0`: https://rail.eecs.berkeley.edu/datasets/ogbench/puzzle-4x6-play-100m-v0
 
   
 
