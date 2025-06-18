@@ -1,6 +1,7 @@
 import tempfile
 import xml.etree.ElementTree as ET
 
+import mujoco
 import numpy as np
 from gymnasium.spaces import Box
 
@@ -166,6 +167,18 @@ def make_maze_env(loco_env_type, maze_env_type, *args, **kwargs):
 
             super().__init__(xml_file=maze_xml_file, *args, **kwargs)
 
+            # Make custom camera.
+            if self.camera_id is None and self.camera_name is None:
+                # Use a custom default view.
+                camera = mujoco.MjvCamera()
+                camera.lookat[0] = 2 * (self.maze_map.shape[1] - 3)
+                camera.lookat[1] = 2 * (self.maze_map.shape[0] - 3)
+                camera.distance = 5 * (self.maze_map.shape[1] - 2)
+                camera.elevation = -90
+                self.custom_camera = camera
+            else:
+                self.custom_camera = self.camera_id or self.camera_name
+
             # Set task goals.
             self.task_infos = []
             self.cur_task_id = None
@@ -196,13 +209,14 @@ def make_maze_env(loco_env_type, maze_env_type, *args, **kwargs):
                 ex_ob = self.get_ob()
                 self.observation_space = Box(low=-np.inf, high=np.inf, shape=ex_ob.shape, dtype=ex_ob.dtype)
 
-            # Set camera.
+            # Make custom renderer.
+            self.custom_renderer = mujoco.Renderer(
+                self.model,
+                width=self.width,
+                height=self.height,
+            )
             self.reset()
             self.render()
-            self.mujoco_renderer.viewer.cam.lookat[0] = 2 * (self.maze_map.shape[1] - 3)
-            self.mujoco_renderer.viewer.cam.lookat[1] = 2 * (self.maze_map.shape[0] - 3)
-            self.mujoco_renderer.viewer.cam.distance = 5 * (self.maze_map.shape[1] - 2)
-            self.mujoco_renderer.viewer.cam.elevation = -90
 
         def update_tree(self, tree):
             """Update the XML tree to include the maze."""
@@ -437,6 +451,10 @@ def make_maze_env(loco_env_type, maze_env_type, *args, **kwargs):
                 reward = reward - 1.0  # -1 (failure) or 0 (success).
 
             return ob, reward, terminated, truncated, info
+
+        def render(self):
+            self.custom_renderer.update_scene(self.data, camera=self.custom_camera)
+            return self.custom_renderer.render()
 
         def get_ob(self, ob_type=None):
             ob_type = self._ob_type if ob_type is None else ob_type
