@@ -187,6 +187,7 @@ def make_maze_env(loco_env_type, maze_env_type, *args, **kwargs):
             self.num_tasks = len(self.task_infos)
             self.cur_goal_xy = np.zeros(2)
 
+            self.custom_renderer = None
             if self._ob_type == 'pixels':
                 self.observation_space = Box(low=0, high=255, shape=(64, 64, 3), dtype=np.uint8)
 
@@ -205,18 +206,10 @@ def make_maze_env(loco_env_type, maze_env_type, *args, **kwargs):
                         r = int(x / tex_height * (max_value - min_value) + min_value)
                         g = int(y / tex_width * (max_value - min_value) + min_value)
                         tex_rgb[x, y, :] = [r, g, 128]
+                self.initialize_renderer()
             else:
                 ex_ob = self.get_ob()
                 self.observation_space = Box(low=-np.inf, high=np.inf, shape=ex_ob.shape, dtype=ex_ob.dtype)
-
-            # Make custom renderer.
-            self.custom_renderer = mujoco.Renderer(
-                self.model,
-                width=self.width,
-                height=self.height,
-            )
-            self.reset()
-            self.render()
 
         def update_tree(self, tree):
             """Update the XML tree to include the maze."""
@@ -362,6 +355,15 @@ def make_maze_env(loco_env_type, maze_env_type, *args, **kwargs):
             if self._reward_task_id == 0:
                 self._reward_task_id = 1  # Default task.
 
+        def initialize_renderer(self):
+            # Make custom renderer.
+            self.custom_renderer = mujoco.Renderer(
+                self.model,
+                width=self.width,
+                height=self.height,
+            )
+            self.render()
+
         def reset(self, options=None, *args, **kwargs):
             if options is None:
                 options = {}
@@ -453,6 +455,8 @@ def make_maze_env(loco_env_type, maze_env_type, *args, **kwargs):
             return ob, reward, terminated, truncated, info
 
         def render(self):
+            if self.custom_renderer is None:
+                self.initialize_renderer()
             self.custom_renderer.update_scene(self.data, camera=self.custom_camera)
             return self.custom_renderer.render()
 
