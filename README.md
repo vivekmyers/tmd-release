@@ -18,7 +18,7 @@ implementation of [Conservative Metric Distillation](https://arxiv.org/pdf/2406.
 ```bibtex
 @article{myers2025offline,
   title={Offline Goal Conditioned Reinforcement Learning with Temporal Distance Representations},
-  author={Myers, Vivek and Chunyuan Zheng, Bill and Eysenbach, Benjamin and Levine, Sergey},
+  author={Myers, Vivek and Zheng, Bill Chunyuan and Eysenbach, Benjamin and Levine, Sergey},
   year={2025}
 }
 ```
